@@ -1,21 +1,83 @@
 /**index.wxss**/
-.userinfo {
+image{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    width: 100%;
+    margin-top: 30rpx;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    height: 400rpx;
+}
+.function{
+    width: 354rpx;
+    height: 200rpx;
+    padding: 0rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 0rpx;
+}
+.round{
+  width: 126rpx;
+  height: 126rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-left: 22rpx;
+} 
+.funImg{
+  width: 60rpx;
+  height: 60rpx;
+}
+button::after{
+    border: none;
+}
+.descr{
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 210rpx;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+label{
+    font: bold 34rpx solid;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.descrip{
+  font-size: 24rpx;
+  line-height: 44rpx;
 }
-
-.usermotto {
-  margin-top: 200px;
+#scanBtn{
+   background-color: #eba143;
+}
+#enterBtn{
+  background-color:#4f9eef;
+}
+#uploadButto{
+  background-color: blue;
+}
+.versionTxt{
+  position: relative;
+  top: -60rpx;
+  left: 550rpx;
+  color: #6a6d72;
+  width: 240rpx;
+  height: 50rpx;
+  font-size: 30rpx;
+}
+.bottom{
+  width: 100%;
+  text-align: center;
+  margin-top: 150rpx;
+}
+span{
+  color: rgba(32, 32, 241, 0.849); 
+  word-wrap: break-word;
+}
+page{
+  background-color:#f3f3f3;
 }

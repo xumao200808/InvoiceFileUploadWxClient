@@ -1,13 +1,46 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+<view>
+    <view class='top'>
+        <image src='{{app.globalData.serverUrl}}/top.png'>
+        </image>
+        <text class="versionTxt">version 1.1.4</text>
+    </view>
+    <view class="container">
+      <view class='function' bindtap='invoiceVerify' style="margin-right: 10rpx;margin-bottom: 10rpx;">
+        <view id='scanBtn' class="round">
+            <image  src='../../images/scan.png'  class='funImg'></image>
+        </view>
+        <view class='descr'>
+          <label>发票验真</label>
+          <text class="descrip">使用RPA机器人</text>
+        </view>
+      </view>
+      <view class='function' bindtap="manualInput" style="margin-left: 10rpx;">
+        <view id='enterBtn' class="round">
+            <image src='../../images/input.png' class='funImg'></image>
+        </view>
+        <view class='descr'>
+          <label>手动录入</label>
+          <text class="descrip">无法扫码验真使用</text>
+        </view>
+      </view>
+      <button class='function' open-type="getUserInfo" bindgetuserinfo='getDockCode' style="margin-left:0rpx;margin-right: 10rpx;margin-top: 10rpx;">
+        <view id='uploadButto' class="round">
+            <image src='../../images/shoot.png' class='funImg'></image>
+        </view>
+        <view class='descr'>
+          <label>发票上传</label>
+          <text class="descrip">购买BPO服务使用</text>
+        </view>
+      </button>
+      <view class='function' style="background-color: #f3f3f3;margin-left: 10rpx;"></view>
+    </view>
+    <view class="bottom">
+      <view>注：BPO服务对应的发票上传功能Demo网站PC端链接地址：</view>
+      <span >
+        <text selectable="true">
+        https://wx.fapiaohelp.com/invoiceDownload</text>
+      </span>
+    </view>
+    <loading hidden="{{hiddenLoading}}">{{lodingText}}</loading>
 </view>

@@ -4,17 +4,26 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.1",
-	"appid": "wx41dd87519dca278c",
-	"projectname": "miniprogram-test-1",
+	"libVersion": "2.1.0",
+	"appid": "wx0c9e8e9e48b7355a",
+	"projectname": "InvoiceFileUploadWxClient",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

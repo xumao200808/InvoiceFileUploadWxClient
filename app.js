@@ -1,39 +1,40 @@
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+      var info = wx.getSystemInfoSync();
+      console.log("小程序基础库版本号：" + info.SDKVersion)
+      this.globalData.sdkVersion = info.SDKVersion;
+      const res = wx.getSystemInfoSync()
+      this.globalData.windowHeight = res.windowHeight;
 
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
   },
+    compareVersion: function (v1,v2) {
+        v1 = v1.split('.')
+        v2 = v2.split('.')
+        var len = Math.max(v1.length, v2.length)
+
+        while (v1.length < len) {
+            v1.push('0')
+        }
+        while (v2.length < len) {
+            v2.push('0')
+        }
+
+        for (var i = 0; i < len; i++) {
+            var num1 = parseInt(v1[i])
+            var num2 = parseInt(v2[i])
+
+            if (num1 > num2) {
+                return 1
+            } else if (num1 < num2) {
+                return -1
+            }
+        }
+        return 0
+    },
   globalData: {
-    userInfo: null
+    queryServerUrl: 'https://wx.fapiaohelp.com/verify-service',
+    serverUrl: 'https://wx.fapiaohelp.com/miniProJavaStorage',
+    windowHeight: '',
   }
 })
